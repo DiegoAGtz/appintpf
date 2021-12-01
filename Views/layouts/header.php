@@ -50,7 +50,7 @@ Mi perfil
         </div>
         <ul class="py-1" aria-labelledby="dropdownNavbar">
         <li>
-          <a href="#" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Panel de control</a>
+          <a href="<?= URL::get('User', 'index') ?>" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Panel de control</a>
         </li>
         <li>
         <li>
@@ -88,3 +88,4 @@ Mi perfil
   </div>
 </nav>
 
+   <div class="flex overflow-hidden bg-white pt-16">

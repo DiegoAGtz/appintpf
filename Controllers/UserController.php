@@ -12,7 +12,7 @@ class UserController extends BaseController {
 
   public function index() {
     $users = $this->user->all();
-    $this->view("profile/users", array(
+    $this->view("profile/index", array(
       "users" => $users,
     ));
   }
