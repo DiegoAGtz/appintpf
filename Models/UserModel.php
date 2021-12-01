@@ -13,8 +13,20 @@ class UserModel extends BaseModel {
       $stmt->execute();
       $id = $stmt->insert_id;
       $stmt->close();
-      return id;
+      return $id;
     }
+  }
+
+  public function registered($email, $password) {
+    if ($stmt = $this->db->prepare("SELECT id FROM users WHERE email = ? AND password = ?")) {
+      $stmt->bind_param("ss", $email, $password);
+      $stmt->execute();
+      $stmt->bind_result($id);
+      $stmt->fetch();
+      $stmt->close();
+      return $id;
+    }
+    return -1;
   }
 
 }

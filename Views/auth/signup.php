@@ -1,5 +1,5 @@
 <?php
-	$title = 'Create';
+	$title = 'Crea una cuenta';
 	require 'Views/layouts/header.php';
 ?>
 
@@ -26,8 +26,8 @@
             Ingresa tus datos para obtener crear una cuenta
         </div>
 
-        <div class="mt-10">
-          <form action="<?= URL::get('User', 'store') ?>" method="POST">
+        <div class="mt-5">
+          <form action="<?= URL::get('Auth', 'signup') ?>" method="POST">
                 <div class="flex flex-col mb-5">
                     <label
                         for="name"
@@ -219,7 +219,7 @@
         >
             <span class="ml-2"
                 >¿Ya tiene una cuenta?
-                <a href="#" class="text-xs ml-2 text-blue-500 font-semibold"
+                <a href="<?= URL::get('Auth', 'login') ?>" class="text-xs ml-2 text-blue-500 font-semibold"
                     >Ingresa ahora</a
                 ></span
             >

@@ -1,9 +1,9 @@
 <?php
-	$title = 'AG Shop';
+	$title = 'AG Shop - Products';
 	require 'Views/layouts/header.php';
 ?>
 
-<h1>Hola desde el index</h1>
+<h1>Hola desde Products</h1>
 
 <?php
 	require 'Views/layouts/footer.php';

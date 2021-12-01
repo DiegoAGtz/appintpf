@@ -1,6 +1,6 @@
 <?php
 
-define("DEFAULT_CONTROLLER", "Product");
+define("DEFAULT_CONTROLLER", "Page");
 define("DEFAULT_ACTION", "index");
 
 define("HOST", "localhost");

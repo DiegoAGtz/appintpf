@@ -2,7 +2,7 @@
 
 class BaseController {
 
-    public function view($view, $data){
+    public function view($view, $data = array()){
         foreach ($data as $id_assoc => $value) {
             ${$id_assoc} = $value;
         }
