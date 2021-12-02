@@ -3,22 +3,20 @@
 	require 'Views/layouts/header.php';
 ?>
 <div>
-    <header class="bg-gray-800" x-data="{ isOpen: false }">
-        <section class="flex items-center justify-center" style="height: 500px;">
-            <div class="text-center">
-                <p class="text-xl font-medium tracking-wider text-gray-300">Universidad de Guanajuato</p>
-                <h2 class="mt-6 text-3xl font-bold text-white md:text-5xl">Diego Armando Gutiérrez Ayala <br>
-                    Ingeniería en Sistemas Computacionales</h2>
-                <div class="flex justify-center mt-12">
-                    <a class="px-8 py-2 text-lg font-medium text-white">
-                        <svg class="w-10 h-10 animate-bounce" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></a>
-                </div>
+    <section class="bg-gray-800 flex items-center justify-center" style="height: 500px;">
+        <div class="text-center">
+            <p class="text-xl font-medium tracking-wider text-gray-300">Universidad de Guanajuato</p>
+            <h2 class="mt-6 text-3xl font-bold text-white md:text-5xl">Diego Armando Gutiérrez Ayala <br>
+                Ingeniería en Sistemas Computacionales</h2>
+            <div class="flex justify-center mt-12">
+                <a class="px-8 py-2 text-lg font-medium text-white">
+                    <svg class="w-10 h-10 animate-bounce" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></a>
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
     
     
-    <section class="bg-trueGray-900">
+    <section>
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
@@ -40,7 +38,7 @@
         </div>
     </section>
   
-    <section class="bg-trueGray-900">
+    <section>
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="px-8 py-12 bg-gray-800 rounded-md md:px-20 md:flex md:items-center md:justify-between">
                 <div>
@@ -75,14 +73,14 @@
         </div>
     </section>
    
-    <section class="bg-trueGray-900">
+    <section>
         <div class="max-w-5xl px-6 py-16 mx-auto text-center">
             <h2 class="text-3xl font-semibold text-white">Datos completos del alumno <br>y la materia.</h2>
             <p class="max-w-lg mx-auto mt-4 text-gray-200">
-            Diego Armando Gutiérrez Ayala | NUA: 147151 <br>
-            Aplicaciones de Internet Semestre Agosto - Diciembre 2021 <br>
-            Impartida por el Dr. José Ruíz Pinales <br>
-            Universidad de Guanajuato - DICIS
+                Diego Armando Gutiérrez Ayala | NUA: 147151 <br>
+                Aplicaciones de Internet Semestre Agosto - Diciembre 2021 <br>
+                Impartida por el Dr. José Ruíz Pinales <br>
+                Universidad de Guanajuato - DICIS
             </p>
     
             <img class="object-cover object-center w-full mt-16 rounded-md shadow h-80"

@@ -2,11 +2,11 @@
 	$title = 'Login';
 	require 'Views/layouts/auth_header.php';
 ?>
-<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div class="min-h-screen flex flex-col items-center justify-center bg-trueGray-900" style="background-image: url(<?= URL::file('Icons/backgroundTopography.svg')?>);">
     <div
         class="
             flex flex-col
-            bg-white
+            bg-gray-800
             shadow-md
             px-4
             sm:px-6
@@ -18,10 +18,10 @@
             max-w-md
         "
     >
-        <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+        <div class="font-medium self-center text-xl sm:text-3xl text-white">
             Bienvenido de vuelta 
         </div>
-        <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+        <div class="mt-4 self-center text-xl sm:text-sm text-gray-200">
             Ingresa tus datos para acceder a tu cuenta 
         </div>
         <div class="mt-5">
@@ -29,7 +29,7 @@
                 <div class="flex flex-col mb-5">
                     <label
                         for="email"
-                        class="mb-1 text-xs tracking-wide text-gray-600"
+                        class="mb-1 text-xs tracking-wide text-gray-300"
                         >Correo electrónico:</label
                     >
                     <div class="relative">
@@ -75,7 +75,7 @@
                             mb-1
                             text-xs
                             tracking-wide
-                            text-gray-600
+                            text-gray-300
                         "
                         >Contraseña:</label
                     >
@@ -129,8 +129,8 @@
                             focus:outline-none
                             text-white text-sm
                             sm:text-base
-                            bg-gray-700
-                            hover:bg-gray-900
+                            bg-indigo-700
+                            hover:bg-indigo-800
                             rounded-2xl
                             py-2
                             w-full
@@ -167,14 +167,14 @@
             class="
                 inline-flex
                 items-center
-                text-gray-700
+                text-gray-200
                 font-medium
                 text-xs text-center
             "
         >
             <span class="ml-2"
                 >¿Aún no tiene una cuenta?
-                <a href="<?= URL::get('Auth', 'signup') ?>" class="text-xs ml-2 text-gray-800 font-semibold"
+                <a href="<?= URL::get('Auth', 'signup') ?>" class="text-xs ml-2 text-indigo-600 font-semibold"
                     >Registrese ahora</a
                 ></span
             >

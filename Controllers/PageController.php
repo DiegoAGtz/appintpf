@@ -1,15 +1,23 @@
 <?php
 require_once 'Core/BaseController.php';
-require_once 'Models/UserModel.php';
+require_once 'Models/ProductModel.php';
 
 class PageController extends BaseController {
-    
+    private $product;
+
+    public function __construct() {
+        $this->product = new ProductModel();
+    }
+
     public function index() {
         $this->view('index');
     }
 
     public function products() {
-        $this->view('pages/products');
+        $products = $this->product->all();
+        $this->view('pages/products', array(
+            "products" => $products
+        ));
     }
 
     public function contact() {

@@ -86,4 +86,4 @@ Mi perfil
   </div>
 </nav>
 </header>
-<div class="w-full overflow-hidden bg-white pt-16 min-h-screen">
+<div class="w-full overflow-hidden bg-trueGray-900 pt-16 min-h-screen">

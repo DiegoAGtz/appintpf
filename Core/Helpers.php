@@ -29,4 +29,14 @@ class Auth {
     }
 }
 
+class Str {
+    public static function truncate($str, $length) {
+        if(strlen($str) < $length - 3) {
+            return $str;
+        } else {
+            return mb_substr($str, 0, $length - 3, 'UTF-8') . '...';
+        }
+    }
+}
+
 ?>

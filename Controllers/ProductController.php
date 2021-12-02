@@ -31,7 +31,7 @@ class ProductController extends BaseController {
 
   public function show() {
     if(isset($_GET["id"])){
-      $this->view("profile", array(
+      $this->view("product/index", array(
         "product" => $this->product->find($_GET["id"])
       ));
     }else{
