@@ -1,8 +1,7 @@
 <?php
 	$title = 'Crea una cuenta';
-	require 'Views/layouts/header.php';
+	require 'Views/layouts/auth_header.php';
 ?>
-
 <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
     <div
         class="
@@ -48,7 +47,7 @@
                                 text-gray-400
                             "
                         >
-                            <i class="fas fa-user text-blue-500"></i>
+                            <i class="fas fa-user text-gray-800"></i>
                         </div>
 
                         <input
@@ -64,7 +63,7 @@
                                 border border-gray-400
                                 w-full
                                 py-2
-                                focus:outline-none focus:border-blue-400
+                                focus:outline-none focus:border-gray-800
                             "
                             placeholder="Ingresa tu nombre"
                         />
@@ -90,7 +89,7 @@
                                 text-gray-400
                             "
                         >
-                            <i class="fas fa-at text-blue-500"></i>
+                            <i class="fas fa-at text-gray-800"></i>
                         </div>
 
                         <input
@@ -106,7 +105,7 @@
                                 border border-gray-400
                                 w-full
                                 py-2
-                                focus:outline-none focus:border-blue-400
+                                focus:outline-none focus:border-gray-800
                             "
                             placeholder="Ingresa tu email"
                         />
@@ -139,7 +138,7 @@
                             "
                         >
                             <span>
-                                <i class="fas fa-lock text-blue-500"></i>
+                                <i class="fas fa-lock text-gray-800"></i>
                             </span>
                         </div>
 
@@ -156,7 +155,7 @@
                                 border border-gray-400
                                 w-full
                                 py-2
-                                focus:outline-none focus:border-blue-400
+                                focus:outline-none focus:border-gray-800
                             "
                             placeholder="Ingresa tu contraseña"
                         />
@@ -174,8 +173,8 @@
                             focus:outline-none
                             text-white text-sm
                             sm:text-base
-                            bg-blue-500
-                            hover:bg-blue-600
+                            bg-gray-700
+                            hover:bg-gray-900
                             rounded-2xl
                             py-2
                             w-full
@@ -219,14 +218,13 @@
         >
             <span class="ml-2"
                 >¿Ya tiene una cuenta?
-                <a href="<?= URL::get('Auth', 'login') ?>" class="text-xs ml-2 text-blue-500 font-semibold"
+                <a href="<?= URL::get('Auth', 'login') ?>" class="text-xs ml-2 text-gray-800 font-semibold"
                     >Ingresa ahora</a
                 ></span
             >
         </a>
     </div>
 </div>
-
 <?php
-	require 'Views/layouts/footer.php';
+	require 'Views/layouts/auth_footer.php';
 ?>

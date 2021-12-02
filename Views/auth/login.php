@@ -1,8 +1,7 @@
 <?php
-	$title = 'Inicia sesión';
-	require 'Views/layouts/header.php';
+	$title = 'Login';
+	require 'Views/layouts/auth_header.php';
 ?>
-
 <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
     <div
         class="
@@ -47,7 +46,7 @@
                                 text-gray-400
                             "
                         >
-                            <i class="fas fa-at text-blue-500"></i>
+                            <i class="fas fa-at text-gray-800"></i>
                         </div>
 
                         <input
@@ -95,7 +94,7 @@
                             "
                         >
                             <span>
-                                <i class="fas fa-lock text-blue-500"></i>
+                                <i class="fas fa-lock text-gray-800"></i>
                             </span>
                         </div>
 
@@ -182,7 +181,6 @@
         </a>
     </div>
 </div>
-
 <?php
-	require 'Views/layouts/footer.php';
+	require 'Views/layouts/auth_footer.php';
 ?>

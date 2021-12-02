@@ -19,4 +19,14 @@ class URL {
     }
 }
 
+class Auth {
+    public static function loggedIn() {
+        if (isset($_SESSION[SESSION_NAME])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 ?>

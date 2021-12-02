@@ -6,8 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
+  <link rel="stylesheet" href="Views/css/app.css">
+</head>
 <body>
-<nav class="border-gray-200 px-2 sm:px-4 py-3 bg-gray-800 fixed z-30 w-full border-b">
+<header>
+<nav class="border-gray-200 px-2 sm:px-4 py-3 bg-gray-800 fixed z-30 w-full">
   <div class="container mx-auto flex flex-wrap items-center justify-between">
   <a href="#" class="flex">
 
@@ -30,12 +33,7 @@
         </a>
 
 
-<?php if(1){ ?>
-<!--
-      <button type="button" class="mr-3 md:mr-0 bg-gray-800 flex text-sm rounded-full focus:ring-4 focus:ring-gray-600" id="dropdownButton" data-dropdown-toggle="dropdown">
-        <img class="h-8 w-8 rounded-full" src="<?= URL::file('Avatars/avatar.jpg') ?>" alt="user photo">
-      </button>
--->
+<?php if(Auth::loggedIn()) { ?>
 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="border-0 pl-3 pr-4 py-2 md:p-0 flex items-center justify-between w-full md:w-auto text-gray-200 hover:text-white focus:text-white border-gray-700 hover:bg-transparent md-text-base font-medium">
 Mi perfil
 <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -54,7 +52,7 @@ Mi perfil
         </li>
         <li>
         <li>
-          <a href="#" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Cerrar sesión</a>
+          <a href="<?= URL::get('Auth', 'logout') ?>" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Cerrar sesión</a>
         </li>
         </ul>
       </div>
@@ -87,5 +85,5 @@ Mi perfil
   </div>
   </div>
 </nav>
-
-   <div class="flex overflow-hidden bg-white pt-16">
+</header>
+<div class="w-full overflow-hidden bg-white pt-16 min-h-screen">

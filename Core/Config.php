@@ -8,4 +8,6 @@ define("USER", "laravel");
 define("PASSWORD", "laravel");
 define("DATABASE", "appintpf_db");
 
+define("SESSION_NAME", "connected")
+
 ?>

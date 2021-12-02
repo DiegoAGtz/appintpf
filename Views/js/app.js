@@ -17,4 +17,5 @@ function hideScroll() {
 }
 
 ///
-window.onscroll = function() {hideScroll()}
+window.onload = function() { hideScroll() }
+window.onscroll = function() { hideScroll() }

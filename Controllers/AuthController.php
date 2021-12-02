@@ -10,7 +10,11 @@ class AuthController extends BaseController {
   }
 
   public function signup() {
-    $this->view("auth/signup");
+    if(Auth::loggedIn()) {
+      $this->redirect("User", "show");
+    } else {
+      $this->view("auth/signup");
+    }
   }
 
   public function store() {
@@ -25,7 +29,11 @@ class AuthController extends BaseController {
   }
 
   public function login() {
-    $this->view("auth/login");
+    if(Auth::loggedIn()) {
+      $this->redirect("User", "show");
+    } else {
+      $this->view("auth/login");
+    }
   }
 
   public function check() {
@@ -33,11 +41,17 @@ class AuthController extends BaseController {
       $email = $_POST["email"];
       $password = $_POST["password"];
       if($this->user->registered($email, $password) > 0) {
-        $this->redirect("Product", "index");
+        $_SESSION[SESSION_NAME] = true;
+        $this->redirect("Page", "index");
       } else {
         $this->redirect("Auth", "login");
       }
     }
+  }
+
+  public function logout() {
+    unset($_SESSION[SESSION_NAME]);
+    $this->redirect("Auth", "login");
   }
 }
 ?>
