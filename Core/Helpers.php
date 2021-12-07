@@ -1,4 +1,5 @@
 <?php
+require_once 'Models/UserModel.php';
 
 class URL {
     public static function get($controller = DEFAULT_CONTROLLER, $action = DEFAULT_ACTION, $params = array()){
@@ -26,6 +27,11 @@ class Auth {
         } else {
             return false;
         }
+    }
+
+    public static function info() {
+        $user = new UserModel();
+        return $user->find($_SESSION[SESSION_NAME]);
     }
 }
 

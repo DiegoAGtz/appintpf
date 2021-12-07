@@ -1,3 +1,9 @@
+<?php 
+if(Auth::loggedIn()) {
+  $user = Auth::info();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,8 +49,8 @@ Mi perfil
           <div class="grid place-items-center mb-3">
             <img class="h-24 w-24 rounded-full" src="<?= URL::file('Avatars/avatar.jpg') ?>" alt="user photo">
           </div>
-          <span class="block text-sm text-white">DiegoAGtz</span>
-          <span class="block text-sm font-medium truncate text-gray-400">da@ga.com</span>
+          <span class="block text-sm text-white"><?= $user['name'] ?></span>
+          <span class="block text-sm font-medium truncate text-gray-400"><?= $user['email']?></span>
         </div>
         <ul class="py-1" aria-labelledby="dropdownNavbar">
         <li>
@@ -53,6 +59,7 @@ Mi perfil
         <li>
         <li>
           <a href="<?= URL::get('Auth', 'logout') ?>" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Cerrar sesión</a>
+
         </li>
         </ul>
       </div>
@@ -72,13 +79,13 @@ Mi perfil
   <div class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1" id="mobile-menu-2">
     <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-base md:font-medium">
       <li>
-        <a href="<?= URL::get('Page', 'index') ?>" class="bg-blue-700 md:bg-transparent block pl-3 pr-4 py-2 md:text-white md:p-0 rounded text-white" aria-current="page">Inicio</a>
+        <a href="<?= URL::get('Page', 'index') ?>" class="<?= $homeClass ?>" aria-current="page">Inicio</a>
       </li>
       <li>
-        <a href="<?= URL::get('Page', 'products') ?>" class="border-b md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Productos</a>
+        <a href="<?= URL::get('Page', 'products') ?>" class="<?= $productsClass ?>">Productos</a>
       </li>
       <li>
-        <a href="<?= URL::get('Page', 'contact') ?>" class="border-b md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Contacto</a>
+        <a href="<?= URL::get('Page', 'contact') ?>" class="<?= $contacClass ?>">Contacto</a>
       </li>
       <li>
     </ul>

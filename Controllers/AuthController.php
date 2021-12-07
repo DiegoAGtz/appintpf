@@ -40,8 +40,9 @@ class AuthController extends BaseController {
     if(isset($_POST["email"])) {
       $email = $_POST["email"];
       $password = $_POST["password"];
-      if($this->user->registered($email, $password) > 0) {
-        $_SESSION[SESSION_NAME] = true;
+      $id = $this->user->registered($email, $password);
+      if($id) {
+        $_SESSION[SESSION_NAME] = $id;
         $this->redirect("Page", "index");
       } else {
         $this->redirect("Auth", "login");
