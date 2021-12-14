@@ -1,13 +1,25 @@
-class Carrito {
-  constructor(clave) {
-    this.id = clave || "products";
+class Car {
+  constructor(id) {
+    this.id = id || "products";
     this.products = this.get();
   }
 
   add(producto) {
     if (!this.exists(producto.id)) {
+      producto.cantidad = 1;
       this.products.push(producto);
+      console.log(this.products)
       this.save();
+    }
+  }
+
+  plus(id) {
+    if(this.exists(id)) {
+      const i = this.products.findIndex((p) => p.id === id);
+      if(i != -1) {
+        console.log(this.products[i].cantidad++);
+        localStorage.setItem(this.id, JSON.stringify(this.products))
+      }
     }
   }
 
@@ -36,3 +48,4 @@ class Carrito {
     return this.products.length;
   }
 }
+

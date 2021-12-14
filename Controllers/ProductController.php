@@ -55,5 +55,16 @@ class ProductController extends BaseController {
     }
   }
 
+  // API
+  public function apiget() {
+    header("Content-type: application/json");
+    if(isset($_GET["id"])){
+      echo json_encode($this->product->find($_GET["id"]));
+    } else {
+      echo json_encode(['error' => 'No se encontró el producto']);
+    }
+    exit;
+  }
+
 }
 ?>

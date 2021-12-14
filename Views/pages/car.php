@@ -6,7 +6,51 @@
 	require 'Views/layouts/header.php';
 ?>
 
-<h1 class="pt-16 pb-16">Hola desde Car</h1>
+<div class="flex flex-col mx-16 mt-5">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden sm:rounded-lg shadow-md">
+                <table class="min-w-full">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th scope="col" class="text-xs px-6 py-3 text-left uppercase tracking-wider text-gray-200">
+                                Nombre
+                            </th>
+                            <th scope="col" class="text-xs px-6 py-3 text-left uppercase tracking-wider text-gray-200">
+                                Descripción
+                            </th>
+                            <th scope="col" class="text-xs px-6 py-3 text-left uppercase tracking-wider text-gray-200">
+                                Cantidad
+                            </th>
+                            <th scope="col" class="text-xs px-6 py-3 text-left uppercase tracking-wider text-gray-200">
+                                Precio
+                            </th>
+                            <th scope="col" class="relative px-6 py-3">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                    </tbody>
+                    <tfoot class="bg-gray-700">
+                        <tr>
+                            <td class="text-xs font-bold px-6 py-3 text-left uppercase tracking-wider text-gray-200">Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-xs font-bold px-6 py-3 text-left uppercase tracking-wider text-gray-200" id="celdaTotal"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-row-reverse mt-2">
+        <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" id="btnTerminarCompra">Terminar Compra</button>
+    </div>
+</div>
+
+<script src="Views/js/car.js"></script>
+<script src="Views/js/shoppingcar.js"></script>
 
 <?php
 	require 'Views/layouts/footer.php';

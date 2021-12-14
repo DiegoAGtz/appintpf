@@ -36,7 +36,5 @@
 </footer>
 
 <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
-<script src="Views/js/app.js"></script>
-
 </body>
 </html>

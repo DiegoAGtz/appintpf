@@ -6,7 +6,18 @@
 	require 'Views/layouts/header.php';
 ?>
 
+<div class="flex w-full fixed justify-center hidden" id="alertDiv">
+	<div class="flex w-9/12 justify-self-center mt-5 bg-blue-100 pr-40 rounded-lg p-4 mb-4 text-sm text-blue-700 dark:bg-blue-200 dark:text-blue-800" role="alert">
+	  <svg class="w-5 h-5 inline flex-shrink-0 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+	  <div>
+	    <span class="font-medium">Se ha añadido 1 </span><span id="alertContent"></span> 
+	  </div>
+	</div>
+</div>
+
+
 <section class="mt-10 mx-40">
+
 	<?php foreach($products as $product) { ?>
 
 	<div class="lg:flex shadow rounded-lg px-5 mb-5 bg-gray-800">
@@ -35,12 +46,15 @@
 		</div>
 	  </div>
 	  <div class="flex flex-row items-center w-full lg:w-1/3 lg:justify-end justify-center px-2 py-4 lg:px-0">
-		<button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">Agregar al carrito</button>
+	  <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" onclick='addProduct(<?= $product['id'] ?>)'>Agregar al carrito</button>
 	  </div>
 	</div>
 
 	<?php } ?>
 </section>
+
+<script src="Views/js/car.js"></script>
+<script src="Views/js/products.js"></script>
 
 <?php
 	require 'Views/layouts/footer.php';

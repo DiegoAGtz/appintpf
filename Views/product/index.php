@@ -24,6 +24,21 @@
   </div>
 </section>
 
+<button class="bg-white" onclick="add()">
+  presiona
+</button>
+
+<script>
+function add() {
+  fetch("index.php?controller=Product&action=apiget&id=1", {
+    headers: {
+      'Content-type': 'application/json'
+    } 
+  }).then(response => response.json())
+    .then(data => console.log(data))
+}
+</script>
+
 <?php
 	require 'Views/layouts/footer.php';
 ?>
