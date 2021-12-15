@@ -15,6 +15,7 @@ class UserModel extends BaseModel {
       $stmt->close();
       return $id;
     }
+    return -1;
   }
 
   public function registered($email, $password) {

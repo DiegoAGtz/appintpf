@@ -59,8 +59,7 @@ Mi perfil
         </li>
         <li>
         <li>
-          <a href="<?= URL::get('Auth', 'logout') ?>" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Cerrar sesión</a>
-
+          <button onclick="logout('<?= URL::get('Auth', 'logout') ?>', <?= Auth::loggedIn() ?>)" class="text-sm w-full block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Cerrar sesión</button>
         </li>
         </ul>
       </div>

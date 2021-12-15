@@ -46,15 +46,15 @@
 		</div>
 	  </div>
 	  <div class="flex flex-row items-center w-full lg:w-1/3 lg:justify-end justify-center px-2 py-4 lg:px-0">
-	  <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" onclick='addProduct(<?= $product['id'] ?>)'>Agregar al carrito</button>
+	  <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" onclick='loggedIn(<?= $product['id'] ?>, <?= Auth::loggedIn() ?>)'>Agregar al carrito</button>
 	  </div>
 	</div>
 
 	<?php } ?>
 </section>
 
-<script src="Views/js/car.js"></script>
-<script src="Views/js/products.js"></script>
+<script src="Views/js/car.js" defer></script>
+<script src="Views/js/products.js" defer></script>
 
 <?php
 	require 'Views/layouts/footer.php';

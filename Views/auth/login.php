@@ -2,7 +2,6 @@
 $title = 'Login';
 require 'Views/layouts/auth_header.php';
 ?>
-<div class="min-h-screen flex flex-col items-center justify-center bg-trueGray-900" style="background-image: url(<?= URL::file('Icons/backgroundTopography.svg') ?>);">
     <div class="flex flex-col bg-gray-800 shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
         <div class="font-medium self-center text-xl sm:text-3xl text-white">
             Bienvenido de vuelta
@@ -55,7 +54,6 @@ require 'Views/layouts/auth_header.php';
             </span>
         </a>
     </div>
-</div>
 <?php
 require 'Views/layouts/auth_footer.php';
 ?>

@@ -25,7 +25,10 @@ class PageController extends BaseController {
     }
 
     public function car() {
-        $this->view('pages/car');
+        if(Auth::loggedIn())
+            $this->view('pages/car');
+        else 
+            $this->redirect('Auth', 'login');
     }
 
 }

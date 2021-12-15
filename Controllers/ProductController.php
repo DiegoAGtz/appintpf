@@ -47,7 +47,7 @@ class ProductController extends BaseController {
 
   }
 
-  public function destoy() {
+  public function destroy() {
     if(isset($_GET["id"])){
       $this->user->delete($_GET["id"]);
     }else{

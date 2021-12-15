@@ -6,7 +6,7 @@
 	require 'Views/layouts/header.php';
 ?>
 
-<div class="flex flex-col mx-16 mt-5">
+<div class="flex flex-col mx-16 mt-5 hidden" id="tableDiv">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden sm:rounded-lg shadow-md">
@@ -47,6 +47,10 @@
     <div class="flex flex-row-reverse mt-2">
         <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" id="btnTerminarCompra">Terminar Compra</button>
     </div>
+</div>
+<div class="text-center mx-16 mt-10 hidden" id="emptyDiv">
+    <h1 class="mt-6 text-xl font-bold text-white md:text-3xl">Tu carrito está vacío</h1>
+    <p class="text-xl font-medium tracking-wider text-gray-300">¿No sabes que comprar? ¡Miles de productos te esperan!</p>
 </div>
 
 <script src="Views/js/car.js"></script>

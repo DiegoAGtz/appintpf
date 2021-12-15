@@ -18,13 +18,15 @@ class AuthController extends BaseController {
   }
 
   public function store() {
-    $this->redirect("Product", "index");
     if(isset($_POST["name"])) {
       $name = $_POST["name"];
       $email = $_POST["email"];
       $password = $_POST["password"];
       $avatar = "hola"; 
-      $this->user->save($name, $email, $password, $avatar);
+      if ($this->user->save($name, $email, $password, $avatar) > -1)
+        $this->check();
+      else
+        $this->view("auth/signup");
     }
   }
 

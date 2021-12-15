@@ -35,7 +35,7 @@ class UserController extends BaseController {
 
   }
 
-  public function destoy() {
+  public function destroy() {
     $this->redirect("User", "index");
     if(isset($_GET["id"])){
       $this->user->delete($_GET["id"]);
