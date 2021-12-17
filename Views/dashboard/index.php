@@ -9,7 +9,7 @@
     $myProductsClass = 'text-base text-white font-normal rounded-lg flex items-center p-2 hover:bg-gray-900 group';
 	require 'Views/layouts/dash_header.php';
 ?>
-<main class="h-screen">
+<main class="min-h-screen">
    <div class="pt-6 px-4">
       <div class="grid grid-cols-1 2xl:grid-cols-2 xl:gap-4 my-4">
          <div class="bg-gray-800 shadow rounded-lg mb-4 p-4 sm:p-6 h-full">

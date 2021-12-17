@@ -85,7 +85,7 @@ Mi perfil
         <a href="<?= URL::get('Page', 'products') ?>" class="<?= $productsClass ?>">Productos</a>
       </li>
       <li>
-        <a href="<?= URL::get('Page', 'contact') ?>" class="<?= $contacClass ?>">Contacto</a>
+        <a href="<?= URL::get('Page', 'contact') ?>" class="<?= $contacClass ?> hidden">Contacto</a>
       </li>
       <li>
     </ul>

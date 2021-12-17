@@ -17,10 +17,9 @@
 
 
 <section class="mt-10 mx-40">
-
 	<?php foreach($products as $product) { ?>
-
-	<div class="lg:flex shadow rounded-lg px-5 mb-5 bg-gray-800">
+	<div class="rounded-lg px-3 py-3 mb-5 bg-gray-800">
+		<div class="shadow lg:flex bg-gray-900 px-3 rounded-xl">
 	  <div class="rounded-lg lg:w-2/12 py-4 block h-full shadow-inner">
 		<a href="<?= URL::get('Product', 'show', array('id' => $product['id'])) ?>">
 			<img class="object-cover object-center h-full" src="<?= URL::file('Products/product.png') ?>" alt="Producto">
@@ -32,7 +31,7 @@
 			$<?= $product['price'] ?>
 		  </div>
 		  <div class="text-gray-300 font-medium text-sm text-center lg:text-left px-2">
-			Organiser : IHC
+		  	Vendedor: <?= $product['username']?>
 		  </div>
 		</div>
 		<div class="font-semibold text-white text-xl text-center lg:text-left px-2">
@@ -48,8 +47,8 @@
 	  <div class="flex flex-row items-center w-full lg:w-1/3 lg:justify-end justify-center px-2 py-4 lg:px-0">
 	  <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" onclick='loggedIn(<?= $product['id'] ?>, <?= Auth::loggedIn() ?>)'>Agregar al carrito</button>
 	  </div>
+		</div>
 	</div>
-
 	<?php } ?>
 </section>
 

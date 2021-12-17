@@ -17,8 +17,21 @@ class Car {
     if(this.exists(id)) {
       const i = this.products.findIndex((p) => p.id === id);
       if(i != -1) {
-        console.log(this.products[i].cantidad++);
+        this.products[i].cantidad++
         localStorage.setItem(this.id, JSON.stringify(this.products))
+      }
+    }
+  }
+
+  minus(id) {
+    if(this.exists(id)) {
+      const i = this.products.findIndex((p) => p.id === id);
+      if(i != -1) {
+        this.products[i].cantidad--
+        if(this.products[i].cantidad > 0)
+          localStorage.setItem(this.id, JSON.stringify(this.products))
+        else
+        this.remove(id)
       }
     }
   }

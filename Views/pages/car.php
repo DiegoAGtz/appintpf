@@ -23,7 +23,9 @@
                                 Cantidad
                             </th>
                             <th scope="col" class="text-xs px-6 py-3 text-left uppercase tracking-wider text-gray-200">
-                                Precio
+                                Costo
+                            </th>
+                            <th scope="col" class="relative px-6 py-3">
                             </th>
                             <th scope="col" class="relative px-6 py-3">
                             </th>
@@ -34,6 +36,7 @@
                     <tfoot class="bg-gray-700">
                         <tr>
                             <td class="text-xs font-bold px-6 py-3 text-left uppercase tracking-wider text-gray-200">Total</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>

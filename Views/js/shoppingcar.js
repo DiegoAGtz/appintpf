@@ -23,7 +23,7 @@ const refrescarCarrito = () => {
     $tableDiv.classList.remove('hidden')
     $emptyDiv.classList.add('hidden')
     for (const producto of productos) {
-      total += parseFloat(producto.price)
+      total += parseFloat(producto.price) * parseFloat(producto.cantidad)
 
       const $fila = document.createElement("tr") 
       $fila.classList.add("border-b", "bg-gray-800", "border-gray-700")
@@ -52,6 +52,30 @@ const refrescarCarrito = () => {
       $fila.appendChild($celdaPrecio)
 
       const idProducto = producto.id
+      const $celdaPlus = document.createElement("td")
+      $celdaPlus.classList.add("px-6", "py-4", "whitespace-nowrap", "text-right", "text-sm", "font-medium")
+
+      const $plusButton = document.createElement("button")
+      $plusButton.classList.add("text-white", "focus:ring-4", "font-medium", "rounded-full", "text-sm", "text-center", "inline-flex", "items-center", "mr-3", "bg-blue-600", "hover:bg-blue-700", "focus:ring-blue-800", "px-2", "py-1")
+      $plusButton.innerHTML = "+"
+      $plusButton.onclick = async () => {
+        c.plus(idProducto)
+        refrescarCarrito()
+      }
+      
+      const $minusButton = document.createElement("td")
+      $minusButton.classList.add("text-white", "focus:ring-4", "font-bold", "rounded-full", "text-sm", "text-center", "inline-flex", "items-center", "mr-3", "bg-red-600", "hover:bg-red-700", "focus:ring-red-800", "px-3", "py-1")
+      $minusButton.innerHTML = "-"
+      $minusButton.onclick = async () => {
+        c.minus(idProducto)
+        refrescarCarrito()
+      }
+
+      $celdaPlus.appendChild($plusButton)
+      $celdaPlus.appendChild($minusButton)
+      $fila.appendChild($celdaPlus)
+
+      // const idProducto = producto.id
       const $celdaEliminar = document.createElement("td")
       $celdaEliminar.classList.add("px-6", "py-4", "whitespace-nowrap", "text-right", "text-sm", "font-medium")
 

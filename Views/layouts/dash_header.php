@@ -2,10 +2,10 @@
    require_once 'Views/layouts/header.php';
 ?>
 <aside id="sidebar" class="bg-gray-800 fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
-   <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-indigo-700 pt-0">
+   <div class="relative flex-1 flex flex-col min-h-0 bg-indigo-700 pt-0">
       <div class="flex-1 flex flex-col py-1 overflow-y-auto">
          <div class="flex-1 px-3 bg-gray-800 divide-y space-y-1">
-            <ul class="space-y-2 pb-2">
+            <ul class="space-y-2 pb-2 mt-2">
                <li>
                   <a href="<?= URL::get('Dashboard', 'index') ?>" class="<?= $myPurchasesClass ?>">
                      <svg class="w-6 h-6 text-gray-300 group-hover:text-white transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

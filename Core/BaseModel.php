@@ -46,7 +46,7 @@ class BaseModel {
     public function where($column, $value) {
         $query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value'");
  
-        while($row  =  $query->fetch_object()) {
+        while($row  =  $query->fetch_assoc()) {
            $resultSet[] = $row;
         }
          

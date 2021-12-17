@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col mb-6">
-                    <label for="password" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600 ">Contraseña:</label>
+                    <label for="password" class="mb-1 text-xs tracking-wide text-gray-300 ">Contraseña:</label>
                     <div class="relative">
                         <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">

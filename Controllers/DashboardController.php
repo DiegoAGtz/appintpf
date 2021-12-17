@@ -12,7 +12,12 @@ class DashboardController extends BaseController {
     }
 
     public function products() {
-        $this->view('dashboard/products');
+        $product = new ProductModel();
+        $products = $product->where('user_id', Auth::info()['id']);
+        $this->view('dashboard/products', array(
+            'products' => $products
+        ));
     }
+
 } 
 ?>
