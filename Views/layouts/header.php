@@ -48,7 +48,7 @@ Mi perfil
       <div class="hidden text-base z-50 list-none divide-y rounded shadow my-4 bg-gray-800 divide-gray-600" id="dropdownNavbar">
         <div class="px-4 py-3">
           <div class="grid place-items-center mb-3">
-            <img class="h-24 w-24 rounded-full" src="<?= URL::file('Avatars/avatar.jpg') ?>" alt="user photo">
+            <img class="h-24 w-24 rounded-full" src="<?= URL::file('Avatars/'.$user['avatar']) ?>" alt="user photo">
           </div>
           <span class="block text-sm text-white"><?= $user['name'] ?></span>
           <span class="block text-sm font-medium truncate text-gray-400"><?= $user['email']?></span>

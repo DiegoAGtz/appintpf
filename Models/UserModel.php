@@ -30,6 +30,16 @@ class UserModel extends BaseModel {
     return -1;
   }
 
+  public function change($photo, $id) {
+    if($stmt = $this->db->prepare("UPDATE users SET avatar = ? WHERE id = ?")) {
+      $stmt->bind_param("si", $photo, $id);
+      $id_modified = $stmt->execute();
+      $stmt->close();
+      return $id_modified;
+    }
+    return -1;
+  }
+
 }
 
 ?>

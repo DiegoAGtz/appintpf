@@ -12,7 +12,7 @@
 
 <div class="min-h-screen">
     <div class="rounded-lg px-5 py-5 my-5 mx-10 bg-gray-800">
-        <form class="w-full grid grid-cols-6 gap-4 shadow-lg bg-gray-900 rounded-xl p-5">
+        <form class="w-full grid grid-cols-6 gap-4 shadow-lg bg-gray-900 rounded-xl p-5" action="<?= URL::get("User", "update") ?>" method="POST" enctype="multipart/form-data">
             <div class="col-span-2">
               <div class="container">
                 <div class="max-w-md w-full px-6 py-3">
@@ -27,10 +27,11 @@
                             <span class="mr-2 uppercase">Añadir Foto</span>
                             <span>
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path><path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
+                                  <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path>
+                                  <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
                                 </svg>
                             </span>
-                            <input type="file" class="hidden">
+                            <input type="file" id="avatar" name="avatar" class="hidden">
                           </label>
                         </div>
                       </div>

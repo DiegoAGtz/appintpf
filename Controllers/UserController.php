@@ -32,7 +32,17 @@ class UserController extends BaseController {
   }
 
   public function update() {
-
+    $dir_subida = 'Storage/Avatars/';
+    $date = new Datetime();
+    $filename = $date->getTimestamp() . '-' . basename($_FILES['avatar']['name']);
+    $fichero_subido = $dir_subida . $filename;
+    
+    if (move_uploaded_file($_FILES['avatar']['tmp_name'], $fichero_subido)) {
+        $this->user->change($filename, Auth::info()['id']);
+        echo "El fichero es válido y se subió con éxito.\n";
+    } else {
+        echo "¡Posible ataque de subida de ficheros!\n";
+    }
   }
 
   public function destroy() {

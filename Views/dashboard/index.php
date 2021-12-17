@@ -11,7 +11,7 @@
 ?>
 <main class="min-h-screen">
    <div class="pt-6 px-4">
-      <div class="grid grid-cols-1 2xl:grid-cols-2 xl:gap-4 my-4">
+      <div class="grid xl:gap-4 my-4">
          <div class="bg-gray-800 shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
             <div class="flex items-center justify-between mb-4">
                <h3 class="text-xl font-bold leading-none text-white">Mis compras</h3>

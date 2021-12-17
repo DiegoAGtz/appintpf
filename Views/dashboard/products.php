@@ -23,9 +23,6 @@
 		  <div class="text-gray-300 font-medium text-sm text-center lg:text-left px-2">
 			$<?= $product['price'] ?>
 		  </div>
-		  <div class="text-gray-300 font-medium text-sm text-center lg:text-left px-2">
-		  	Vendedor: <?= $product['username']?>
-		  </div>
 		</div>
 		<div class="font-semibold text-white text-xl text-center lg:text-left px-2">
 			<a href="<?= URL::get('Product', 'show', array('id' => $product['id'])) ?>">
