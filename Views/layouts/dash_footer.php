@@ -1,5 +1,3 @@
-</div>
-
 <footer class="text-gray-600 body-font bg-gray-800">
       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
         <p class="text-white text-sm text-center sm:text-left">© <?= date('Y')?> Dev —
@@ -25,6 +23,7 @@
         </span>
       </div>
 </footer>
+</div>
 
 <div class="hidden fixed bottom-0 right-0 mb-10 mr-4 z-10" id="button-up">
     <div>

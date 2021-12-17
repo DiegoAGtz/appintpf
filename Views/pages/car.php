@@ -45,7 +45,9 @@
         </div>
     </div>
     <div class="flex flex-row-reverse mt-2">
-        <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" id="btnTerminarCompra">Terminar Compra</button>
+        <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" id="btnTerminarCompra">
+            Terminar Compra
+        </button>
     </div>
 </div>
 <div class="text-center mx-16 mt-10 hidden" id="emptyDiv">

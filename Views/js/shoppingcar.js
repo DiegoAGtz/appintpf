@@ -56,7 +56,7 @@ const refrescarCarrito = () => {
       $celdaEliminar.classList.add("px-6", "py-4", "whitespace-nowrap", "text-right", "text-sm", "font-medium")
 
       const $botonEliminar = document.createElement("button")
-      $botonEliminar.classList.add("text-indigo-700", "hover:underline", "font-bold")
+      $botonEliminar.classList.add("py-2", "px-4", "bg-indigo-600", "text-white", "hover:bg-indigo-700", "focus:ring-indigo-800", "text-xs", "font-bold", "rounded")
       $botonEliminar.innerHTML = "Eliminar"
       $botonEliminar.onclick = async () => {
         c.remove(idProducto)
