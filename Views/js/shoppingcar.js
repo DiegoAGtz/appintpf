@@ -1,22 +1,36 @@
 const $tableDiv = document.getElementById("tableDiv")
 const $emptyDiv = document.getElementById("emptyDiv")
-const $cuerpoTabla = document.querySelector("#cuerpoTabla")
-const $celdaTotal = document.querySelector("#celdaTotal")
-const $btnTerminarCompra = document.querySelector("#btnTerminarCompra")
+const $cuerpoTabla = document.getElementById("cuerpoTabla")
+const $celdaTotal = document.getElementById("celdaTotal")
+const $btnTerminarCompra = document.getElementById("btnTerminarCompra")
+const $alertDiv = document.getElementById("alertDiv")
+const $alertContent = document.getElementById("alertContent")
 const c = new Car()
 
-$btnTerminarCompra.onclick = () => {
+const buy = async(id) => {
   const productos = c.get()
-  const respuestaRaw = await fetch('index.php?controller=Product&action=apiget', {
+  const body = {
+    user_id: id,
+    date: new Date().toISOString().substr(0, 10),
+    products: JSON.stringify(productos)
+  }
+
+  const respuestaRaw = await fetch('index.php?controller=Sale&action=create', {
     headers: {
       'Accept': 'application/json'
     },
     method: 'POST',
-    body: JSON.stringify(productos)
-  });
-  let res = await respuestaRaw.json();
-  console.log(res)
-  console.log(JSON.stringify(productos))
+    body: JSON.stringify(body)
+  })
+
+  const res = await respuestaRaw.json()
+  if(!res.hasOwnProperty('err')) {
+    $alertContent.innerText = "¡Compra realizada con éxito!"
+    $alertDiv.classList.remove("hidden")
+    setTimeout(() => {$alertDiv.classList.add("hidden")}, 3000)
+    c.delete()
+    refrescarCarrito()
+  }
 }
 
 const refrescarCarrito = () => {
@@ -31,7 +45,7 @@ const refrescarCarrito = () => {
     $tableDiv.classList.remove('hidden')
     $emptyDiv.classList.add('hidden')
     for (const producto of productos) {
-      total += parseFloat(producto.price) * parseFloat(producto.cantidad)
+      total += parseFloat(producto.price) * parseFloat(producto.amount)
 
       const $fila = document.createElement("tr") 
       $fila.classList.add("border-b", "bg-gray-800", "border-gray-700")
@@ -51,12 +65,12 @@ const refrescarCarrito = () => {
 
       const $celdaCantidad = document.createElement("td")
       $celdaCantidad.classList.add("text-xs", "font-medium", "px-6", "py-3", "text-left", "uppercase", "tracking-wider", "text-white")
-      $celdaCantidad.innerText = producto.cantidad
+      $celdaCantidad.innerText = producto.amount
       $fila.appendChild($celdaCantidad)
 
       const $celdaPrecio = document.createElement("td")
       $celdaPrecio.classList.add("text-xs", "font-medium", "px-6", "py-3", "text-left", "uppercase", "tracking-wider", "text-white")
-      $celdaPrecio.innerText = '$' + (producto.price*producto.cantidad)
+      $celdaPrecio.innerText = '$' + (producto.price*producto.amount)
       $fila.appendChild($celdaPrecio)
 
       const idProducto = producto.id
@@ -70,8 +84,8 @@ const refrescarCarrito = () => {
         c.plus(idProducto)
         refrescarCarrito()
       }
-      
-      const $minusButton = document.createElement("td")
+
+      const $minusButton = document.createElement("button")
       $minusButton.classList.add("text-white", "focus:ring-4", "font-bold", "rounded-full", "text-sm", "text-center", "inline-flex", "items-center", "mr-3", "bg-red-600", "hover:bg-red-700", "focus:ring-red-800", "px-3", "py-1")
       $minusButton.innerHTML = "-"
       $minusButton.onclick = async () => {

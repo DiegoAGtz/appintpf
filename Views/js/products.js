@@ -2,7 +2,6 @@ const addProduct = async (id) => {
     const respuestaRaw = await fetch(`index.php?controller=Product&action=apiget&id=${id}`);
     let producto = await respuestaRaw.json();
     const c = new Car();
-    // Ahora ya tenemos a los productos. Los recorremos
     if (c.exists(producto.id)) {
         c.plus(producto.id);
     } else {
