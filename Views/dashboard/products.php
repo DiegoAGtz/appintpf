@@ -35,7 +35,10 @@
 		</div>
 	  </div>
 	  <div class="flex flex-row items-center w-full lg:w-1/3 lg:justify-end justify-center px-2 py-4 lg:px-0">
-	  <button class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded" onclick='loggedIn(<?= $product['id'] ?>, <?= Auth::loggedIn() ?>)'>Agregar al carrito</button>
+		<form action="<?= URL::get('Product', 'destroy') ?>" method="POST">
+			<input type="hidden" name="id" value="<?= $product['id'] ?>">
+	  		<button type="submit" class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">Eliminar</button>
+		</form>
 	  </div>
 		</div>
 	</div>

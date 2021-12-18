@@ -6,9 +6,17 @@ const $btnTerminarCompra = document.querySelector("#btnTerminarCompra")
 const c = new Car()
 
 $btnTerminarCompra.onclick = () => {
-  // Aquí haz lo que gustes con el carrito
   const productos = c.get()
-  console.log(productos)
+  const respuestaRaw = await fetch('index.php?controller=Product&action=apiget', {
+    headers: {
+      'Accept': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(productos)
+  });
+  let res = await respuestaRaw.json();
+  console.log(res)
+  console.log(JSON.stringify(productos))
 }
 
 const refrescarCarrito = () => {

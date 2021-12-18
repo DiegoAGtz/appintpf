@@ -48,11 +48,10 @@ class ProductController extends BaseController {
   }
 
   public function destroy() {
-    if(isset($_GET["id"])){
-      $this->user->delete($_GET["id"]);
-    }else{
-      $this->index();
+    if(isset($_POST["id"])){
+      $this->product->delete($_POST["id"]);
     }
+    $this->redirect('Dashboard', 'products');
   }
 
   // API

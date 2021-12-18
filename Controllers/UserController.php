@@ -32,16 +32,34 @@ class UserController extends BaseController {
   }
 
   public function update() {
-    $dir_subida = 'Storage/Avatars/';
-    $date = new Datetime();
-    $filename = $date->getTimestamp() . '-' . basename($_FILES['avatar']['name']);
-    $fichero_subido = $dir_subida . $filename;
-    
-    if (move_uploaded_file($_FILES['avatar']['tmp_name'], $fichero_subido)) {
-        $this->user->change($filename, Auth::info()['id']);
-        echo "El fichero es válido y se subió con éxito.\n";
-    } else {
-        echo "¡Posible ataque de subida de ficheros!\n";
+    $newName = "";
+    $newEmail = "";
+    $newAvatar = ""; 
+    if(isset($_POST['name'])) {
+      if(isset($_FILES['avatar'])) {
+        $dir_subida = 'Storage/Avatars/';
+        $date = new Datetime();
+        $newAvatar = $date->getTimestamp() . '-' . basename($_FILES['avatar']['name']);
+        $fichero_subido = $dir_subida . $newAvatar;
+        if (move_uploaded_file($_FILES['avatar']['tmp_name'], $fichero_subido)) {
+          $this->user->changeAvatar($newAvatar, Auth::info()['id']);
+        }
+      }
+
+      if ($_POST['name'] != "") 
+        $newName = $_POST['name'];
+      else 
+        $newName = Auth::info()['name'];
+
+      if ($_POST['email'] != "") 
+        $newEmail = $_POST['email'];
+      else 
+        $newEmail = Auth::info()['email'];
+
+      $this->user->change($newName, $newEmail, Auth::info()['id']);
+      if ($_POST['password'] != "") $this->user->changePassword($_POST['password'], Auth::info()['id']);
+
+      $this->redirect('Dashboard', 'profile');
     }
   }
 

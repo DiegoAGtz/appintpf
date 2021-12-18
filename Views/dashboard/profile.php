@@ -19,7 +19,7 @@
                   <div class="flex flex-col ">
                     <div class="">
                       <div class="relative h-62 w-full mb-3">
-                        <img src="https://images.unsplash.com/photo-1577982787983-e07c6730f2d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2059&q=80" alt="Just a flower" class=" w-full   object-fill  rounded-2xl">
+                        <img src="<?= URL::file('Avatars/'.Auth::info()['avatar']) ?>" id='avatarPreview' alt="Just a flower" class="w-full h-60 object-fill rounded-2xl">
                       </div>
                       <div class="flex-auto justify-evenly">
                         <div class="flex space-x-2 text-sm font-medium justify-start">
@@ -49,7 +49,7 @@
                                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <input id="name" type="text" name="name" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu nombre"/>
+                        <input id="name" type="text" name="name" value="<?= Auth::info()['name'] ?>" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu nombre"/>
                     </div>
                 </div>
                 <div class="flex flex-col mb-6">
@@ -60,7 +60,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </div>
-                        <input id="email" type="email" name="email" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu email"/>
+                        <input id="email" type="email" name="email" value="<?= Auth::info()['email'] ?>" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu email"/>
                     </div>
                 </div>
                 <div class="flex flex-col mb-6">
@@ -71,11 +71,19 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
                             </div>
-                        <input id="password" type="password" name="password" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu contraseña"/>
+                        <input id="password" type="password" name="password" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Nueva contraseña"/>
                     </div>
                 </div>
-                <div class="flex w-full">
-                    <button type="submit" class="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-indigo-700 hover:bg-indigo-800 rounded-2xl py-2 w-full transition duration-150 ease-in">
+                <div class="flex w-full hidden" id="submitDiv">
+                  <a href="<?= URL::get('Dashboard', 'profile') ?>" class="flex mt-2 mr-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-800 rounded-2xl py-2 w-full transition duration-150 ease-in">
+                        <span class="mr-2 uppercase">Cancelar</span>
+                        <span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                            </svg>
+                        </span>
+                    </a>
+                    <button type="submit" class="flex mt-2 ml-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-indigo-700 hover:bg-indigo-800 rounded-2xl py-2 w-full transition duration-150 ease-in">
                         <span class="mr-2 uppercase">Modificar</span>
                         <span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -88,6 +96,8 @@
         </form>
     </div>
 </div>
+
+<script src="Views/js/dashboard.js" defer></script>
 
 <?php
     require 'Views/layouts/dash_footer.php';
