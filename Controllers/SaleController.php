@@ -20,6 +20,7 @@ class SaleController extends BaseController {
       echo json_encode(array('err' => 'No hay json'));
     }
   }
+
 }
 
 ?>

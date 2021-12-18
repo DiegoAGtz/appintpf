@@ -8,13 +8,15 @@
     $myProfileClass = 'text-base text-white font-normal rounded-lg flex items-center p-2 hover:bg-gray-900 group';
     $myProductsClass = 'text-base text-white font-normal rounded-lg flex items-center p-2 hover:bg-gray-900 group';
 	require 'Views/layouts/dash_header.php';
+    $totalCost = 0;
 ?>
+
 <main class="min-h-screen">
    <div class="pt-6 px-4">
       <div class="grid xl:gap-4 my-4">
          <div class="bg-gray-800 shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
             <div class="flex items-center justify-between mb-4">
-               <h3 class="text-xl font-bold leading-none text-white">Mis compras</h3>
+               <h3 class="text-xl font-bold leading-none text-white">Fecha: <?= substr($products[0]['date'], 0, 10) ?></h3>
             </div>
             <div class="flow-root">
                <div class="flex flex-col">
@@ -25,10 +27,13 @@
                               <thead class="bg-gray-700">
                                  <tr>
                                     <th scope="col" class="px-6 py-3 text-xs tracking-wider text-left uppercase text-gray-200">
-                                       Fecha
+                                       Nombre
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-xs tracking-wider text-left uppercase text-gray-200">
-                                       Cantidad de productos
+                                       Cantidad
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-xs tracking-wider text-left uppercase text-gray-200">
+                                       Precio
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-xs tracking-wider text-left uppercase text-gray-200">
                                        Costo total
@@ -38,25 +43,38 @@
                                  </tr>
                               </thead>
                            <tbody>
-                           <?php foreach($shopping as $purchase) { ?>
+                           <?php foreach($products as $product) { $totalCost+=($product['price']*$product['amount']) ?>
                            <tr class="bg-gray-900 border-b border-gray-700">
                               <td class="px-6 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                 <?= substr($purchase['date'], 0, 10) ?>
+                                 <?= $product['name'] ?>
                               </td>
                               <td class="px-6 py-4 text-sm whitespace-nowrap text-gray-300">
-                                 <?= $purchase['totalProducts'] ?>
+                                 <?= $product['amount'] ?>
                               </td>
                               <td class="px-6 py-4 text-sm whitespace-nowrap text-gray-300">
-                                 $<?= $purchase['totalCost'] ?>
+                                 $<?= $product['price'] ?>
+                              </td>
+                              <td class="px-6 py-4 text-sm whitespace-nowrap text-gray-300">
+                                 $<?= $product['amount']*$product['price'] ?>
                               </td>
                               <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                                 <a href="<?= URL::get('Dashboard', 'purchase', array('id' => $purchase['id'])) ?>" class="py-2 px-4 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
+                                 <a href="<?= URL::get('Product', 'show', array('id' => $product['id'])) ?>" class="py-2 px-4 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
                                     Ver
                                  </a>
                               </td>
                            </tr>
                            <?php } ?>
                            </tbody>
+                           <tfoot class="bg-gray-700">
+                               <tr>
+                                   <td class="text-xs font-bold px-6 py-3 text-left uppercase tracking-wider text-gray-200">Total</td>
+                                   <td></td>
+                                   <td></td>
+                                   <td></td>
+                                   <td class="text-xs font-bold px-6 py-3 text-left uppercase tracking-wider text-gray-200">$<?= $totalCost ?></td>
+                               </tr>
+                           </tfoot>
+
                            </table>
                         </div>
                      </div>
@@ -67,6 +85,8 @@
       </div>
    </div>
 </main>
+
+
 
 <?php
     require 'Views/layouts/dash_footer.php';
