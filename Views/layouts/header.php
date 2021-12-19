@@ -8,6 +8,10 @@ if(Auth::loggedIn()) {
 <html>
 <head>
   <title><?=$title?></title>
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= URL::file('Icons/apple-touch-icon.png') ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= URL::file('Icons/favicon-32x32.png')?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= URL::file('Icons/favicon-16x16.png') ?>">
+  <link rel="manifest" href="/site.webmanifest">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">

@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="text-gray-200 font-medium text-sm pt-1 text-center lg:text-left px-2">
-			<?= $product['description'] ?>
+			<?= Str::truncate($product['description'], 256) ?>
 		</div>
 	  </div>
 	  <div class="flex flex-row items-center w-full lg:w-1/3 lg:justify-end justify-center px-2 py-4 lg:px-0">
