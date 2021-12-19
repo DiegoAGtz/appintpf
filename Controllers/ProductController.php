@@ -19,14 +19,22 @@ class ProductController extends BaseController {
   }
 
   public function store() {
-    $this->redirect("Product", "index");
     if(isset($_POST["name"])){
       $name = $_POST["name"];
       $price = $_POST["price"];
       $description = $_POST["description"];
-      $images = "images"; 
-      $product = $this->product->save($name, $price, $description, $images);
+      $product = $this->product->save(Auth::info()['id'], $name, $price, $description);
+      if(isset($_FILES['image'])) {
+        $dir_subida = 'Storage/Products/';
+        $date = new Datetime();
+        $newImage = $date->getTimestamp() . '-' . basename($_FILES['image']['name']);
+        $fichero_subido = $dir_subida . $newImage;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $fichero_subido)) {
+          $this->product->changeImage($newImage, $product);
+        }
+      }
     }
+    $this->redirect("Dashboard", "products");
   }
 
   public function show() {
@@ -44,7 +52,19 @@ class ProductController extends BaseController {
   }
 
   public function update() {
-
+    if(isset($_POST['id'])) {
+      $this->product->change($_POST['id'], $_POST['name'], $_POST['description'], $_POST['price']);
+      if(isset($_FILES['image'])) {
+        $dir_subida = 'Storage/Products/';
+        $date = new Datetime();
+        $newImage = $date->getTimestamp() . '-' . basename($_FILES['image']['name']);
+        $fichero_subido = $dir_subida . $newImage;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $fichero_subido)) {
+          $this->product->changeImage($newImage, $_POST['id']);
+        }
+      }
+    }
+    $this->redirect('Dashboard', 'products');
   }
 
   public function destroy() {

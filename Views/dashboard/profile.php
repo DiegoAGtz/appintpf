@@ -19,7 +19,7 @@
                   <div class="flex flex-col ">
                     <div class="">
                       <div class="relative h-62 w-full mb-3">
-                        <img src="<?= URL::file('Avatars/'.Auth::info()['avatar']) ?>" id='avatarPreview' alt="Just a flower" class="w-full h-60 object-fill rounded-2xl">
+                        <img src="<?= URL::file('Avatars/'.Auth::info()['avatar']) ?>" id='avatarPreview' alt="Just a flower" class="w-full h-60 object-cover rounded-2xl">
                       </div>
                       <div class="flex-auto justify-evenly">
                         <div class="flex space-x-2 text-sm font-medium justify-start">
@@ -49,7 +49,7 @@
                                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <input id="name" type="text" name="name" value="<?= Auth::info()['name'] ?>" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu nombre"/>
+                        <input required id="name" type="text" name="name" value="<?= Auth::info()['name'] ?>" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu nombre"/>
                     </div>
                 </div>
                 <div class="flex flex-col mb-6">
@@ -60,7 +60,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </div>
-                        <input id="email" type="email" name="email" value="<?= Auth::info()['email'] ?>" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu email"/>
+                        <input required id="email" type="email" name="email" value="<?= Auth::info()['email'] ?>" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu email"/>
                     </div>
                 </div>
                 <div class="flex flex-col mb-6">

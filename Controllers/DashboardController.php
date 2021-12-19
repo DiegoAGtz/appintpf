@@ -46,5 +46,18 @@ class DashboardController extends BaseController {
         }
     }
 
+    public function addProduct() {
+        $this->view('dashboard/addProduct');
+    }
+
+    public function update() {
+        if(isset($_GET['id'])) {
+            $product = new ProductModel();
+            $products = $product->find($_GET['id']);
+            $this->view('dashboard/addProduct', array(
+                'product' => $products
+            ));
+        }
+    }
 } 
 ?>

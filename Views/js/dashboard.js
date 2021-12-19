@@ -4,7 +4,6 @@ function readFile(input) {
         reader.onload = function (e) {
             let filePreview = document.getElementById('avatarPreview')
             filePreview.src = e.target.result
-            console.log(e.target.result)
         }
         reader.readAsDataURL(input.files[0])
     }

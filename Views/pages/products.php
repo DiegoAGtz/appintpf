@@ -22,7 +22,7 @@
 		<div class="shadow lg:flex bg-gray-900 px-3 rounded-xl">
 	  <div class="rounded-lg lg:w-2/12 py-4 block h-full shadow-inner">
 		<a href="<?= URL::get('Product', 'show', array('id' => $product['id'])) ?>">
-			<img class="object-cover object-center h-full" src="<?= URL::file('Products/product.png') ?>" alt="Producto">
+			<img class="object-cover rounded-xl object-center h-full" src="<?= URL::file('Products/'.$product['image']) ?>" alt="Producto">
 		</a>
 	  </div>
 	  <div class="w-full lg:w-11/12 xl:w-full px-1 py-5 lg:px-2 lg:py-2 tracking-wide">

@@ -46,17 +46,7 @@ class UserController extends BaseController {
         }
       }
 
-      if ($_POST['name'] != "") 
-        $newName = $_POST['name'];
-      else 
-        $newName = Auth::info()['name'];
-
-      if ($_POST['email'] != "") 
-        $newEmail = $_POST['email'];
-      else 
-        $newEmail = Auth::info()['email'];
-
-      $this->user->change($newName, $newEmail, Auth::info()['id']);
+      $this->user->change($_POST['name'], $_POST['email'], Auth::info()['id']);
       if ($_POST['password'] != "") $this->user->changePassword($_POST['password'], Auth::info()['id']);
 
       $this->redirect('Dashboard', 'profile');

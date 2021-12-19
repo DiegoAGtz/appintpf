@@ -17,7 +17,7 @@ class BaseModel {
     }
      
     public function all() {
-        if ($stmt = $this->db->prepare("SELECT * FROM $this->table ORDER BY id ASC")) {
+        if ($stmt = $this->db->prepare("SELECT * FROM $this->table ORDER BY id DESC")) {
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
@@ -44,7 +44,7 @@ class BaseModel {
     }
      
     public function where($column, $value) {
-        $query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value'");
+        $query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value' ORDER BY id DESC");
  
         while($row  =  $query->fetch_assoc()) {
            $resultSet[] = $row;
