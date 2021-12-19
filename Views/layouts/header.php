@@ -56,7 +56,7 @@ Mi perfil
         </div>
         <ul class="py-1" aria-labelledby="dropdownNavbar">
         <li>
-          <a href="<?= URL::get('Dashboard', 'index') ?>" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white">Panel de control</a>
+          <a href="<?= URL::get('Dashboard', 'index') ?>" class="text-sm block px-4 py-2 hover:bg-gray-600 text-gray-200 hover:text-white text-center">Panel de control</a>
         </li>
         <li>
         <li>

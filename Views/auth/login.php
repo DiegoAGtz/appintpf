@@ -1,5 +1,5 @@
 <?php
-$title = 'Login';
+$title = 'Inicia sessión';
 require 'Views/layouts/auth_header.php';
 ?>
     <div class="flex flex-col bg-gray-800 shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
