@@ -54,7 +54,8 @@ class UserModel extends BaseModel {
 
   public function changePassword($newPassword, $id) {
     if($stmt = $this->db->prepare("UPDATE users SET password=? WHERE id=?")) {
-      $stmt->bind_param("si", md5($newPassword), $id);
+      $pass = md5($newPassword);
+      $stmt->bind_param("si", $pass, $id);
       $id_modified = $stmt->execute();
       $stmt->close();
       return $id_modified;
