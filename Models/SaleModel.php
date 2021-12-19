@@ -34,11 +34,9 @@ class SaleModel extends BaseModel {
   }
 
   public function total($id) {
-    if($stmt = $this->db->prepare("SELECT COUNT(ps.id) AS total, co.cost
-      FROM products_sales ps
-      INNER JOIN (SELECT sale_id, SUM(amount*price) AS cost FROM products_sales GROUP BY sale_id) co 
-      ON co.sale_id = ps.sale_id
-      WHERE ps.sale_id=? ORDER BY ps.sale_id DESC")) {
+    if($stmt = $this->db->prepare("SELECT sale_id, SUM(amount) AS total, SUM(amount*price) AS cost 
+      FROM products_sales WHERE sale_id=? 
+      GROUP BY sale_id ORDER BY sale_id DESC")) {
       $stmt->bind_param("i", $id);
       $stmt->execute();
       $result = $stmt->get_result();
