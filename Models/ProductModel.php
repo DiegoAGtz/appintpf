@@ -11,6 +11,7 @@ class ProductModel extends BaseModel {
     if ($stmt = $this->db->prepare("SELECT * FROM products WHERE state=1 ORDER BY id DESC")) {
       $stmt->execute();
       $result = $stmt->get_result();
+      $resultSet = null;
       while ($row = $result->fetch_assoc()) {
         $resultSet[] = $row;
       }
@@ -27,6 +28,7 @@ class ProductModel extends BaseModel {
 
   public function where($column, $value) {
     $query = $this->db->query("SELECT * FROM products WHERE $column = '$value' AND state=1 ORDER BY id DESC");
+    $resultSet = null;
     while($row  =  $query->fetch_assoc()) {
       $resultSet[] = $row;
     }

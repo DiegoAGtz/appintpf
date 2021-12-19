@@ -8,16 +8,20 @@ class DashboardController extends BaseController {
         if(Auth::loggedIn()) {
             $sale = new SaleModel();
             $purchases = $sale->where('user_id', Auth::info()['id']);
-            foreach ($purchases as $purchase) {
-                $totalProducts[] = $sale->total($purchase['id']);
-            }
-            foreach ($totalProducts as $key => $total) {
-                $shopping[] = array(
-                    'id' => $purchases[$key]['id'],
-                    'date' => $purchases[$key]['date'],
-                    'totalProducts' => $totalProducts[$key][0]['total'],
-                    'totalCost' => $totalProducts[$key][0]['cost']
-                );
+            $shopping = null;
+            $totalProducts = null;
+            if($purchases != null) {
+                foreach ($purchases as $purchase) {
+                    $totalProducts[] = $sale->total($purchase['id']);
+                }
+                foreach ($totalProducts as $key => $total) {
+                    $shopping[] = array(
+                        'id' => $purchases[$key]['id'],
+                        'date' => $purchases[$key]['date'],
+                        'totalProducts' => $totalProducts[$key][0]['total'],
+                        'totalCost' => $totalProducts[$key][0]['cost']
+                    );
+                }
             }
             $this->view('dashboard/index', array(
                 'shopping' => $shopping,

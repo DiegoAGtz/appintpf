@@ -32,16 +32,17 @@ class SaleModel extends BaseModel {
       return -1;
     }
   }
-  
+
   public function total($id) {
     if($stmt = $this->db->prepare("SELECT COUNT(ps.id) AS total, co.cost
-		                            FROM products_sales ps
-        	                        INNER JOIN (SELECT sale_id, SUM(amount*price) AS cost FROM products_sales GROUP BY sale_id) co 
-                                    ON co.sale_id = ps.sale_id
-                                    WHERE ps.sale_id=? ORDER BY ps.sale_id DESC")) {
+      FROM products_sales ps
+      INNER JOIN (SELECT sale_id, SUM(amount*price) AS cost FROM products_sales GROUP BY sale_id) co 
+      ON co.sale_id = ps.sale_id
+      WHERE ps.sale_id=? ORDER BY ps.sale_id DESC")) {
       $stmt->bind_param("i", $id);
       $stmt->execute();
       $result = $stmt->get_result();
+      $resultSet = null;
       while ($row = $result->fetch_assoc()) {
         $resultSet[] = $row;
       }
@@ -52,15 +53,16 @@ class SaleModel extends BaseModel {
 
   public function products($id) {
     if($stmt = $this->db->prepare("SELECT s.date, ps.amount, ps.price, p.id, p.name
-	                                FROM sales s 
-                                    INNER JOIN products_sales ps
-                                    ON s.id = ps.sale_id
-                                    INNER JOIN products p
-                                    ON p.id = ps.product_id
-                                    WHERE s.id=? ORDER BY s.id DESC")) {
+      FROM sales s 
+      INNER JOIN products_sales ps
+      ON s.id = ps.sale_id
+      INNER JOIN products p
+      ON p.id = ps.product_id
+      WHERE s.id=? ORDER BY s.id DESC")) {
       $stmt->bind_param("i", $id);
       $stmt->execute();
       $result = $stmt->get_result();
+      $resultSet = null;
       while($row = $result->fetch_assoc()) {
         $resultSet[] = $row;
       }

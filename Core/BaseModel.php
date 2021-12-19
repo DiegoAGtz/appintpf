@@ -20,6 +20,7 @@ class BaseModel {
         if ($stmt = $this->db->prepare("SELECT * FROM $this->table ORDER BY id DESC")) {
             $stmt->execute();
             $result = $stmt->get_result();
+            $resultSet = null;
             while ($row = $result->fetch_assoc()) {
                 $resultSet[] = $row;
             }
@@ -34,6 +35,7 @@ class BaseModel {
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();
+            $resultSet = null;
             while ($row = $result->fetch_assoc()) {
                 $resultSet = $row;
             }
@@ -45,11 +47,10 @@ class BaseModel {
      
     public function where($column, $value) {
         $query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value' ORDER BY id DESC");
- 
+        $resultSet = null;
         while($row  =  $query->fetch_assoc()) {
            $resultSet[] = $row;
         }
-         
         return $resultSet;
     }
      

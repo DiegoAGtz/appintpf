@@ -9,7 +9,8 @@ class UserModel extends BaseModel {
 
   public function save($name, $email, $password) {
     if ($stmt = $this->db->prepare("INSERT INTO users(name, email, password) VALUES (?, ?, ?)")) {
-      $stmt->bind_param("sss", $name, $email, md5($password));
+      $pass = md5($password);
+      $stmt->bind_param("sss", $name, $email, $pass);
       $stmt->execute();
       $id = $stmt->insert_id;
       $stmt->close();
@@ -20,7 +21,8 @@ class UserModel extends BaseModel {
 
   public function registered($email, $password) {
     if ($stmt = $this->db->prepare("SELECT id FROM users WHERE email = ? AND password = ?")) {
-      $stmt->bind_param("ss", $email, md5($password));
+      $pass = md5($password);
+      $stmt->bind_param("ss", $email, $pass);
       $stmt->execute();
       $stmt->bind_result($id);
       $stmt->fetch();
