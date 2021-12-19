@@ -139,7 +139,7 @@
                       <input id="price" value="<?= $product['price'] ?>" required type="number" name="price" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="0.00"/>
                   </div>
                 </div>
-                <div class="flex w-full hidden" id="submitDiv">
+                <div class="flex w-full">
                   <a id="cancelButton" href="<?= URL::get('Dashboard', 'products') ?>" class="flex mt-2 mr-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-800 rounded-2xl py-2 w-full transition duration-150 ease-in">
                         <span class="mr-2 uppercase">Cancelar</span>
                         <span>
@@ -149,14 +149,16 @@
                         </span>
                     </a>
                     <input type="hidden" name="id" id="id" value="<?= $product['id'] ?>">
-                    <button type="submit" class="flex mt-2 ml-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-indigo-700 hover:bg-indigo-800 rounded-2xl py-2 w-full transition duration-150 ease-in">
-                        <span class="mr-2 uppercase">Modificar</span>
-                        <span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                            </svg>
-                        </span>
-                    </button>
+                    <div class="flex w-full hidden" id="submitDiv">
+                      <button type="submit" class="flex mt-2 ml-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-indigo-700 hover:bg-indigo-800 rounded-2xl py-2 w-full transition duration-150 ease-in">
+                          <span class="mr-2 uppercase">Modificar</span>
+                          <span>
+                              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                              </svg>
+                          </span>
+                      </button>
+                    </div>
                 </div>
             </div>
         </form>

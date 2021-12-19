@@ -17,8 +17,10 @@ class PageController extends BaseController {
     public function products() {
         $user = new UserModel();
         $products = $this->product->all();
-        for($i=0; $i<count($products); $i++) {
-            $products[$i]['username'] = $user->find($products[$i]['user_id'])['name'];
+        if($products != null) {
+            for($i=0; $i<count($products); $i++) {
+                $products[$i]['username'] = $user->find($products[$i]['user_id'])['name'];
+            }
         }
         $this->view('pages/products', array(
             "products" => $products

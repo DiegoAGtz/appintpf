@@ -7,9 +7,9 @@ class UserModel extends BaseModel {
     parent::__construct("users");
   }
 
-  public function save($name, $email, $password, $avatar) {
-    if ($stmt = $this->db->prepare("INSERT INTO users(name, email, password, avatar) VALUES (?, ?, ?, ?)")) {
-      $stmt->bind_param("ssss", $name, $email, md5($password), $avatar);
+  public function save($name, $email, $password) {
+    if ($stmt = $this->db->prepare("INSERT INTO users(name, email, password) VALUES (?, ?, ?)")) {
+      $stmt->bind_param("sss", $name, $email, md5($password));
       $stmt->execute();
       $id = $stmt->insert_id;
       $stmt->close();

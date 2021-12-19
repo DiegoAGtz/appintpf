@@ -65,6 +65,11 @@
 <div class="text-center mx-16 mt-10 hidden" id="emptyDiv">
     <h1 class="mt-6 text-xl font-bold text-white md:text-3xl">Tu carrito está vacío</h1>
     <p class="text-xl font-medium tracking-wider text-gray-300">¿No sabes que comprar? ¡Miles de productos te esperan!</p>
+    <div class="my-7">
+		<a href="<?= URL::get('Page', 'products') ?>" class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
+			Ir a la tienda
+		</a>
+	</div>
 </div>
 
 

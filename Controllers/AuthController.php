@@ -22,8 +22,7 @@ class AuthController extends BaseController {
       $name = $_POST["name"];
       $email = $_POST["email"];
       $password = $_POST["password"];
-      $avatar = "hola"; 
-      if ($this->user->save($name, $email, $password, $avatar) > -1)
+      if ($this->user->save($name, $email, $password) > -1)
         $this->check();
       else
         $this->view("auth/signup");

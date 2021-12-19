@@ -34,7 +34,8 @@ if(btnCancel != null) {
         submitDiv.classList.remove('hidden')
     }
 
-    imageField.onchange = function() {
+    imageField.onchange = function(e) {
         submitDiv.classList.remove('hidden')
+        readFile(e.srcElement)
     }
 }

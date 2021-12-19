@@ -7,6 +7,32 @@ class ProductModel extends BaseModel {
     parent::__construct("products");
   }
 
+  public function all() {
+    if ($stmt = $this->db->prepare("SELECT * FROM products WHERE state=1 ORDER BY id DESC")) {
+      $stmt->execute();
+      $result = $stmt->get_result();
+      while ($row = $result->fetch_assoc()) {
+        $resultSet[] = $row;
+      }
+      $stmt->close();
+      return $resultSet;
+    }
+    return 0;
+  }
+
+  public function delete($id) {
+    $query = $this->db->query("UPDATE products SET state=0 WHERE id = $id");
+    return $query;
+  }
+
+  public function where($column, $value) {
+    $query = $this->db->query("SELECT * FROM products WHERE $column = '$value' AND state=1 ORDER BY id DESC");
+    while($row  =  $query->fetch_assoc()) {
+      $resultSet[] = $row;
+    }
+    return $resultSet;
+  }
+
   public function save($id, $name, $price, $description) {
     if ($stmt = $this->db->prepare("INSERT INTO products(user_id, name, price, description) VALUES (?, ?, ?, ?)")) {
       $stmt->bind_param("isss", $id, $name, $price, $description);

@@ -19,12 +19,9 @@ if(Auth::loggedIn()) {
 <header>
 <nav class="border-gray-200 px-2 sm:px-4 py-3 bg-gray-800 fixed z-30 w-full">
   <div class="container mx-auto flex flex-wrap items-center justify-between">
-  <a href="#" class="flex">
-
-
-<svg class="w-10 h-10 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
-
-      <span class="self-center text-lg font-semibold whitespace-nowrap text-white">AG SHOP</span>
+  <a href="<?= URL::get('Page', 'index')?>" class="flex">
+    <svg class="w-10 h-10 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
+    <span class="self-center text-lg font-semibold whitespace-nowrap text-white">AG SHOP</span>
   </a>
   <div class="flex items-center md:order-2">
 
@@ -48,7 +45,7 @@ Mi perfil
       <div class="hidden text-base z-50 list-none divide-y rounded shadow my-4 bg-gray-800 divide-gray-600" id="dropdownNavbar">
         <div class="px-4 py-3">
           <div class="grid place-items-center mb-3">
-            <img class="h-24 w-24 rounded-full" src="<?= URL::file('Avatars/'.$user['avatar']) ?>" alt="user photo">
+            <img class="h-24 w-24 object-center object-cover rounded-full" src="<?= URL::file('Avatars/'.$user['avatar']) ?>" alt="user photo">
           </div>
           <span class="block text-sm text-white"><?= $user['name'] ?></span>
           <span class="block text-sm font-medium truncate text-gray-400"><?= $user['email']?></span>

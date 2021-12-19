@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-
+<?php if($products != null) { ?>
 <section class="mt-10 mx-40">
 	<?php foreach($products as $product) { ?>
 	<div class="rounded-lg px-3 py-3 mb-5 bg-gray-800">
@@ -51,6 +51,18 @@
 	</div>
 	<?php } ?>
 </section>
+
+<?php } else { ?>
+	<div class="text-center min-h-screen mx-16 mt-16" id="emptyDiv">
+    <h1 class="mt-6 text-xl font-bold text-white md:text-3xl">Parece que aún no existen productos</h1>
+    <p class="text-xl font-medium tracking-wider text-gray-300">¿Qué te parece si agregas el primero?</p>
+	<div class="my-7">
+		<a href="<?= URL::get('Dashboard', 'addProduct') ?>" class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
+			Añadir producto
+		</a>
+	</div>
+</div>
+<?php } ?>
 
 <script src="Views/js/car.js" defer></script>
 <script src="Views/js/products.js" defer></script>

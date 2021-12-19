@@ -10,10 +10,12 @@
 	require 'Views/layouts/dash_header.php';
 ?>
 
+<?php if($products != null) { ?>
+
 <section class="my-7 mx-40 min-h-screen">
 	<div class="flex flex-row-reverse mb-7">
 		<a href="<?= URL::get('Dashboard', 'addProduct') ?>" class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
-			Modificar producto
+			Añadir producto
 		</a>
 	</div>
 	<?php foreach($products as $product) { ?>
@@ -51,6 +53,19 @@
 	</div>
 	<?php } ?>
 </section>
+
+<?php } else { ?>
+<div class="text-center min-h-screen mx-16 mt-16" id="emptyDiv">
+    <h1 class="mt-6 text-xl font-bold text-white md:text-3xl">Parece que no tienes productos</h1>
+    <p class="text-xl font-medium tracking-wider text-gray-300">¿Qué te parece si agregamos uno?</p>
+	<div class="my-7">
+		<a href="<?= URL::get('Dashboard', 'addProduct') ?>" class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
+			Añadir producto
+		</a>
+	</div>
+</div>
+<?php } ?>
+
 <?php
     require 'Views/layouts/dash_footer.php';
 ?>

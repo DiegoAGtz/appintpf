@@ -9,6 +9,7 @@
     $myProductsClass = 'text-base text-white font-normal rounded-lg flex items-center p-2 hover:bg-gray-900 group';
 	require 'Views/layouts/dash_header.php';
 ?>
+<?php if($shopping != null) { ?>
 <main class="min-h-screen">
    <div class="pt-6 px-4">
       <div class="grid xl:gap-4 my-4">
@@ -67,6 +68,18 @@
       </div>
    </div>
 </main>
+
+<?php } else { ?>
+<div class="text-center min-h-screen mx-16 mt-16" id="emptyDiv">
+    <h1 class="mt-6 text-xl font-bold text-white md:text-3xl">Aún no tienes compras</h1>
+    <p class="text-xl font-medium tracking-wider text-gray-300">¿No sabes que comprar? ¡Miles de productos te esperan!</p>
+	<div class="my-7">
+		<a href="<?= URL::get('Page', 'products') ?>" class="py-2 px-10 bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-800 text-xs font-bold rounded">
+			Ir a la tienda
+		</a>
+	</div>
+</div>
+<?php } ?>
 
 <?php
     require 'Views/layouts/dash_footer.php';

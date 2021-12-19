@@ -21,7 +21,7 @@
                             </svg>
                         </div>
 
-                        <input id="name" type="text" name="name" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu nombre"/>
+                        <input required id="name" type="text" name="name" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu nombre"/>
                     </div>
                 </div>
                 <div class="flex flex-col mb-5">
@@ -33,7 +33,7 @@
                             </svg>
                         </div>
 
-                        <input id="email" type="email" name="email" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu email"/>
+                        <input id="email" required type="email" name="email" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu email"/>
                     </div>
                 </div>
                 <div class="flex flex-col mb-6">
@@ -44,7 +44,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
-                        <input id="password" type="password" name="password" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu contraseña"/>
+                        <input id="password" required type="password" name="password" class=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800" placeholder="Ingresa tu contraseña"/>
                     </div>
                 </div>
 
