@@ -8,8 +8,8 @@ const addProduct = async (id) => {
         c.add(producto);
     }
 
-    const $alertDiv = document.querySelector("#alertDiv")
-    const $alertContent = document.querySelector("#alertContent")
+    const $alertDiv = document.getElementById("alertDiv")
+    const $alertContent = document.getElementById("alertContent")
     $alertContent.innerText = ""
     $alertContent.innerText = producto.name
     $alertDiv.classList.remove("hidden")

@@ -8,7 +8,6 @@ class Car {
     if (!this.exists(producto.id)) {
       producto.amount = 1
       this.products.push(producto)
-      console.log(this.products)
       this.save()
     }
   }

@@ -63,6 +63,25 @@ class ProductModel extends BaseModel {
     return -1;
   }
 
+  public function find($id) {
+    if ($stmt = $this->db->prepare("SELECT p.*, u.name as username
+      FROM products p 
+      INNER JOIN users u
+      ON u.id = p.user_id
+      WHERE p.id=?")) {
+      $stmt->bind_param("i", $id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $resultSet = null;
+      while ($row = $result->fetch_assoc()) {
+        $resultSet = $row;
+      }
+      $stmt->close();
+      return $resultSet;
+    }
+    return 0;
+  }
+
 }
 
 ?>

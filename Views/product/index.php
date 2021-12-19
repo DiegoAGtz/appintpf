@@ -20,6 +20,7 @@
     <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded-xl border border-gray-800" src="<?= URL::file('Products/'.$product['image']) ?>">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
 	  	<h1 class="text-white text-3xl title-font font-medium mb-4"><?= $product['name'] ?></h1>
+        <p class="leading-relaxed text-sm -mt-4 mb-2 text-gray-200">Ofrecido por: <?= $product['username'] ?></p>
         <p class="leading-relaxed text-gray-200"><?= $product['description'] ?></p>
         <div class="flex mt-4 items-center pb-5 border-b-2 border-gray-700 mb-4"></div>
         <div class="flex">

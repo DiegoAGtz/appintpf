@@ -1,6 +1,5 @@
 <?php
 require_once 'Models/UserModel.php';
-
 class URL {
     public static function get($controller = DEFAULT_CONTROLLER, $action = DEFAULT_ACTION, $params = array()){
         $urlString = "index.php?controller=$controller&action=$action";
@@ -44,5 +43,4 @@ class Str {
         }
     }
 }
-
 ?>

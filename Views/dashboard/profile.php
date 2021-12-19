@@ -31,7 +31,7 @@
                                   <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
                                 </svg>
                             </span>
-                            <input type="file" id="avatar" name="avatar" class="hidden">
+                            <input type="file" accept=".jpg, .jpeg, .png" id="avatar" name="avatar" class="hidden">
                           </label>
                         </div>
                       </div>
